@@ -12,9 +12,9 @@ describe('Employee Suite of Tests', ()=> { // suite of tests for employee
         });
     });
             
-    describe('Get Name', ()=> { 
-        it('should return name from getName()', ()=> {
-            expect(employee.getName()).toBe('Craig');
+    describe('Get Name', ()=> {                         //label for test group
+        it('should return name from getName()', ()=> { // what is being tested
+            expect(employee.getName()).toBe('Craig');  //expected result
         });
     });
 
@@ -35,5 +35,5 @@ describe('Employee Suite of Tests', ()=> { // suite of tests for employee
             expect(employee.getRole()).toBe('Employee');
         });   
     });
-    
+
 });
