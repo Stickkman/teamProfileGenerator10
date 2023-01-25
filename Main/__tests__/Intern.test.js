@@ -5,7 +5,7 @@ const intern = new Intern('Craig', '8675309', 'stick@gmail.com', 'UCF'); // inst
 describe('Intern Suite of Tests', ()=> { // suite of tests for Intern
 
     describe('Constructor Values', ()=> { // specific test label
-        it('should return data from engineer object', ()=> { 
+        it('should return data from intern object', ()=> { 
             expect(intern.name).toBe('Craig');            //tests for name
             expect(intern.id).toBe('8675309');         //tests for id number
             expect(intern.email).toBe('stick@gmail.com'); // tests for email
