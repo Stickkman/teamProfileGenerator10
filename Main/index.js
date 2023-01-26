@@ -14,6 +14,99 @@ const generatePage = require('./src/page-template.js');
 
 const teamMembers =[]; //array to hold team member data
 
+// start of inquirer prompts, specifically manager type prompts
+const promptManager = ()=> { 
+    return inquirer.prompt([  
+    {
+        type: 'input',                                  // type of input
+        message: "Please enter Team Manager's name? ",  // prompt message
+        name: 'name',                                   // prompt variable name
+        validate: (name)=> {                            // validate input
+            if (name !=='') { 
+                return true;
+            } else {
+                console.log('Please enter at least one character..'); // catch for wrong input type
+                return false; 
+            }
+        }
+    },
+    {
+        type: 'input',
+        message: "Team Manager Employee Id Number? ",
+        name: 'idNumber',
+        validate: (idNumber)=> { 
+            if(idNumber !=='') {
+                return true;
+            } else { 
+                console.log('Please enter at least one NUMBER..');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        message: "Team Manager Email? ",
+        name: 'email',
+        validate: (email)=> { 
+            if(email !=='') {
+                return true;
+            } else { 
+                console.log('No input entered, please try again..');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        message: "Team Manager Office Number? ",
+        name: 'officeNumber',
+        validate: (officeNumber)=> { 
+            if(officeNumber !=='') {
+                return true;
+            } else { 
+                console.log('Please enter at least one NUMBER..');
+                return false;
+            }
+        }
+    },
+    ]).then(answers => {
+        console.log("Testing answers" + answers); //REMOVE THIS LATER
+        //instantiate new manager object with required properties from input answers
+        const manager = new Manager(answers.name, answers.idNumber, answers.email, answers.officeNumber);
+        teamMembers.push(manager);  // push new manager object into teamMembers array
+            promptMenu();           // calls promptMenu function to add additional employees or build team now.
+    })
+    
+};
+// function for prompts related to additional employees or team build.
+const promptMenu = ()=> {
+    return inquirer.prompt([
+    {
+        type: 'list',                                  // list type for selecting from choices array
+        message: "What would you like to do next? ",
+        choices: ['Add an Engineer..', 'Add an Intern..', 'Finish building team..'], // array for choices
+        name: 'menuChoice',
+    }    
+        ]).then(whatNext=> {
+             switch(whatNext.menuChoice) {      //switch cases for list choices
+                case 'Add an Engineer..':
+                    promptEngineer();           // call Engineer prompts
+                    break;
+                case 'Add an Intern..':
+                    promptIntern();             // call Intern prompts
+                    break;
+                default:                        
+                    buildTeam();                // default to building team
+             }        
+        });
+    }; 
+
+
+
+
+
+
+
 if (!fs.existsSync(DIST_DIR)) {
      // if 'dist' directory does not exist create it
     fs.mkdirSync(DIST_DIR) 
