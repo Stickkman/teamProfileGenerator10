@@ -49,20 +49,21 @@ const makeTeam = (team)=> {
      // loop to cycle thru team by roles to generate appropriate html for each
      for (let i = 0; i < team.length; i++) {
         if (team[i].getRole() === "Manager") {
-            generateManager(team[i]);
+            genManager(team[i]);
         }
         if (team[i].getRole() === "Engineer") {
-            generateEngineer(team[i]);
+            genEngineer(team[i]);
         }
         if (team[i].getRole() === "Intern") {
-            generateIntern(team[i]);
+            genIntern(team[i]);
         }
     }
-
+            console.log("Your Team has been created in the dist folder > teams.html")
             // joins above html code
             return html.join('');
 }
-module.exports = team=> {
+
+module.exports = team=> { //exports and creates top half of html code
 return `
 <!DOCTYPE html>
 <html lang="en">
@@ -79,8 +80,9 @@ return `
     <header>
     <h1> My Team </h1>
     </header>
-    <main> ${generateTeam(team)} </main>
+    <main> ${makeTeam(team)} </main>
 </body>
 </html>
     `;
+    
 }

@@ -156,7 +156,7 @@ const promptEngineer = ()=> {
             }
         },
     ]).then(answers => {
-        console.log("Testing answers" + answers); //REMOVE THIS LATER
+        
         //instantiate new engineer object with required properties from input answers
         const engineer = new Engineer(answers.name, answers.idNumber, answers.email, answers.githubUsername);
         teamMembers.push(engineer);  // push new engineer object into teamMembers array
@@ -219,10 +219,10 @@ const promptIntern = ()=> {
         }
     },
 ]).then(answers => {
-    console.log("Testing answers" + answers); //REMOVE THIS LATER
+    
     //instantiate new intern object with required properties from input answers
     const intern = new Intern(answers.name, answers.idNumber, answers.email, answers.school);
-    teamMembers.push(engineer);  // push new intern object into teamMembers array
+    teamMembers.push(intern);  // push new intern object into teamMembers array
         promptMenu();           // go back to menu
 })
 };
