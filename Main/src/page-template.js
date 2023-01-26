@@ -22,7 +22,7 @@ const makeTeam = (team)=> {
             <div class="card-header"> ${engineer.name} 
            <i class="fas fa-glasses"></i>Engineer
            </div>
-           <ul class="list-group>
+           <ul class="list-group">
                 <li class="list-group-item">Id Number: ${engineer.id}</li>
                 <li class="list-group-item">Email: <span id="email"><a href="mailto:${engineer.email}">${engineer.email}</a></span></li>
                 <li class="list-group-item">GitHub Username: <a target="_blank" href="https://github.com/${engineer.githubUsername}">${engineer.githubUsername}</a></li>
