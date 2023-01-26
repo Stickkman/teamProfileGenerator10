@@ -17,9 +17,9 @@ let this app do it for you.
 Video Demo -> [*Video-Demonstration-Link*](https://drive.google.com/file/d/1Ln3YO1_nviYoa8mp5oKaUWbExuKC3d6Z/view)
 
 ScreenShot Below
-![Application Demo Screenshot1](https://github.com/Stickkman/teamProfileGenerator10/blob/main/screenshots/screenshot02.jpg?raw=true)
+![Application Demo Screenshot1](https://github.com/Stickkman/teamProfileGenerator10/blob/main/Main/screenshots/screenshot02.jpg?raw=true)
 
-![Application Demo Screenshot2](https://github.com/Stickkman/teamProfileGenerator10/blob/main/screenshots/screenshot03.jpg?raw=true)
+![Application Demo Screenshot2](https://github.com/Stickkman/teamProfileGenerator10/blob/main/Main/screenshots/screenshot03.jpg?raw=true)
 ## Installation
 Use 'npm install' from your preferred CLI to install dependencies. 
 ## Usage
