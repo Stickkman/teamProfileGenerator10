@@ -83,7 +83,7 @@ const promptMenu = ()=> {
     return inquirer.prompt([
     {
         type: 'list',                                  // list type for selecting from choices array
-        message: "What would you like to do next? ",
+        message: "What would you like to do next? (use arrow keys)",
         choices: ['Add an Engineer..', 'Add an Intern..', 'Finish building team..'], // array for choices
         name: 'menuChoice',
     }    
@@ -96,12 +96,73 @@ const promptMenu = ()=> {
                     promptIntern();             // call Intern prompts
                     break;
                 default:                        
-                    buildTeam();                // default to building team
+                    buildTeam();                // default to building team, no case because only option left
              }        
         });
     }; 
-
-
+// function for adding Engineer to team
+const promptEngineer = ()=> {
+    return inquirer.prompt([
+        {
+            type: 'input',                                 
+            message: "Please enter Engineer's name? ",  
+            name: 'name',                                   
+            validate: (name)=> {                            
+                if (name !=='') { 
+                    return true;
+                } else {
+                    console.log('Please enter at least one character..'); // catch for wrong input type
+                    return false; 
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: "Engineer Employee Id Number? ",
+            name: 'idNumber',
+            validate: (idNumber)=> { 
+                if(idNumber !=='') {
+                    return true;
+                } else { 
+                    console.log('Please enter at least one NUMBER..');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: "Engineer Email? ",
+            name: 'email',
+            validate: (email)=> { 
+                if(email !=='') {
+                    return true;
+                } else { 
+                    console.log('No input entered, please try again..');
+                    return false;
+                }
+            }
+        },    
+        {
+            type: 'input',
+            message: "Engineer GitHub Username? ",
+            name: 'githubUsername',
+            validate: (githubUsername)=> { 
+                if(githubUsername !=='') {
+                    return true;
+                } else { 
+                    console.log('No input entered, please try again..');
+                    return false;
+                }
+            }
+        },
+    ]).then(answers => {
+        console.log("Testing answers" + answers); //REMOVE THIS LATER
+        //instantiate new engineer object with required properties from input answers
+        const engineer = new Engineer(answers.name, answers.idNumber, answers.email, answers.githubUsername);
+        teamMembers.push(engineer);  // push new engineer object into teamMembers array
+            promptMenu();           // calls promptMenu function to add additional employees or build team now.
+    })
+};
 
 
 
