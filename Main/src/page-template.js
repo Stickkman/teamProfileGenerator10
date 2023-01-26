@@ -58,11 +58,10 @@ const makeTeam = (team)=> {
             generateIntern(team[i]);
         }
     }
-
             // joins above html code
             return html.join('');
 }
-module.exports = team=> {
+module.exports = team=> { //export and creates top portion of html page
 return `
 <!DOCTYPE html>
 <html lang="en">
