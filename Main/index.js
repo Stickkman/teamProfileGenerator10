@@ -233,7 +233,7 @@ const buildTeam = ()=> {
         fs.mkdirSync(DIST_DIR) 
     }
     //write file instantly to designated path by calling generatePage function and passing teamMembers array of objects
-    // fs.writeFileSync(distPath, generatePage(teamMembers), 'utf-8');
+    fs.writeFileSync(distPath, generatePage(teamMembers), 'utf-8');
 }
 
 promptManager(); // call to start prompts, beginning with manager prompts
